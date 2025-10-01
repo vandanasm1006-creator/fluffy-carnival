@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Printable 30-Day Abs Challenge</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-image: url('https://images.unsplash.com/photo-1581009146145-b5ef050c2e1e?q=80&w=2070&auto=format&fit=crop');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+        }
+        .main-content-area {
+            background-color: rgba(245, 245, 244, 0.95); /* stone-100 with opacity */
+        }
+        .day-block {
+            break-inside: avoid;
+        }
+        h1, h2, h3, h4 {
+            break-after: avoid;
+        }
+        .day-tracker-box.completed {
+            background-color: #d97706; /* amber-600 */
+            color: white;
+            font-weight: bold;
+            border-color: #b45309; /* amber-700 */
+        }
+        @media print {
+            body {
+                -webkit-print-color-adjust: exact;
+                print-color-adjust: exact;
+            }
+            .no-print {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body class="bg-gray-800">
+    <div class="container mx-auto px-4">
+        <main class="main-content-area max-w-4xl mx-auto my-8 md:my-12 p-6 md:p-10 rounded-lg shadow-2xl">
+
+            <div class="no-print flex justify-between items-center mb-8">
+                <h1 class="text-2xl font-bold text-gray-800">Challenge Preview</h1>
+                <button id="print-btn" class="flex items-center gap-2 px-4 py-2 bg-amber-600 text-white font-semibold rounded-lg shadow-md hover:bg-amber-700 focus:outline-none focus:ring-2 focus:ring-amber-500 focus:ring-opacity-75 transition">
+                    <i data-lucide="printer"></i>
+                    Print or Save as PDF
+                </button>
+            </div>
+
+            <div id="content-to-print">
+                <header class="border-b border-stone-300 pb-6 mb-8 flex flex-col md:flex-row justify-between items-center">
+                    <div class="text-left max-w-2xl">
+                        <h1 class="text-4xl font-bold text-gray-900">Your 30-Day Abs Challenge Guide</h1>
+                        <p class="mt-4 text-lg text-gray-600">This guide is designed to progressively challenge your core over 30 days. Remember that nutrition, hydration, and consistency are key. Listen to your body and rest when you need to.</p>
+                    </div>
+                    <div class="mt-6 md:mt-0 md:ml-8 no-print">
+                        <img src="https://thumbs.dreamstime.com/b/perfect-body-power-athletic-man-great-physique-strong-bodybuilder-six-pack-abs-shoulders-biceps-triceps-chest-90548427.jpg" alt="Aesthetic physique with defined abs" class="rounded-lg shadow-lg w-56 h-auto object-cover">
+                    </div>
+                </header>
+
+                 <section class="mb-8">
+                    <div class="bg-stone-200 p-6 rounded-lg border border-stone-300">
+                        <div class="flex justify-between items-center mb-4">
+                            <h3 class="text-xl font-semibold text-gray-800">✨ Your 30-Day Progress Tracker</h3>
+                            <button id="reset-tracker-btn" class="text-sm text-amber-700 hover:underline no-print">Reset</button>
+                        </div>
+                        <div id="progress-tracker-grid" class="grid grid-cols-6 md:grid-cols-10 gap-2">
+                        </div>
+                    </div>
+                </section>
+
+                <section class="mb-8">
+                    <h2 class="text-2xl font-semibold text-gray-800 border-b-2 border-amber-500 pb-2 mb-4">Important Considerations</h2>
+                    <div class="grid md:grid-cols-2 gap-6">
+                        <div>
+                            <h3 class="text-xl font-semibold text-gray-700 mb-2">Warm-Up (5 mins)</h3>
+                            <ul class="list-disc list-inside text-gray-600 space-y-1">
+                                <li>Jumping Jacks: 60 seconds</li>
+                                <li>High Knees: 60 seconds</li>
+                                <li>Torso Twists: 30s per side</li>
+                                <li>Cat-Cow Stretch: 60 seconds</li>
+                                <li>Leg Swings: 30s per leg</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h3 class="text-xl font-semibold text-gray-700 mb-2">Cool-Down (5 mins)</h3>
+                            <ul class="list-disc list-inside text-gray-600 space-y-1">
+                                <li>Cobra Stretch: 30 seconds</li>
+                                <li>Child's Pose: 60 seconds</li>
+                                <li>Lying Spinal Twist: 30s per side</li>
+                                <li>Knees-to-Chest: 60 seconds</li>
+                            </ul>
+                        </div>
+                        <div class="md:col-span-2 bg-amber-50 border-l-4 border-amber-400 text-amber-900 p-4 rounded-r-lg">
+                            <h3 class="text-xl font-semibold mb-2">Nutrition & Hydration</h3>
+                            <p>Drink 8-10 glasses of water daily. Focus on lean protein, whole grains, fruits, and vegetables. A calorie deficit is necessary to reveal abdominal muscles; this plan builds them, your diet makes them visible.</p>
+                        </div>
+                    </div>
+                </section>
+
+                <section>
+                    <h2 class="text-2xl font-semibold text-gray-800 border-b-2 border-amber-500 pb-2 mb-6">Weekly Workout Plan</h2>
+                    
+                    <div class="mb-6 bg-amber-100 border-l-4 border-amber-500 text-amber-700 p-4 rounded-r-lg flex items-center gap-3 no-print">
+                        <i data-lucide="info" class="h-5 w-5"></i>
+                        <p class="text-sm font-medium">Tip: Click on any exercise name to watch a video demonstration!</p>
+                    </div>
+
+                    <div class="mb-8 day-block">
+                        <h3 class="text-2xl font-bold text-gray-700 mb-4">Week 1: <span class="font-semibold">Foundation Building</span></h3>
+                        <div class="grid md:grid-cols-2 gap-8">
+                            <div class="bg-stone-50 p-6 rounded-lg border border-stone-200 shadow-sm">
+                                <strong class="text-gray-800 block mb-2">Day 1 & 4: (3 Sets, 60s Rest)</strong>
+                                <div class="exercises mt-2"><span>Plank</span><span>Crunches</span><span>Leg Raises</span></div>
+                                <div class="bg-amber-100 p-3 rounded-lg border border-amber-200 mt-4 text-center">
+                                    <p class="text-sm font-bold text-amber-800 italic">"The only bad workout is the one that didn't happen."</p>
+                                </div>
+                            </div>
+                            <div class="bg-stone-50 p-6 rounded-lg border border-stone-200 shadow-sm">
+                                <strong class="text-gray-800 block mb-2">Day 2 & 5: (3 Sets, 60s Rest)</strong>
+                                <div class="exercises mt-2"><span>Glute Bridges</span><span>Bird-Dog</span><span>Mountain Climbers</span></div>
+                                <div class="bg-amber-100 p-3 rounded-lg border border-amber-200 mt-4 text-center">
+                                    <p class="text-sm font-bold text-amber-800 italic">"Believe you can and you're halfway there."</p>
+                                </div>
+                            </div>
+                            <div class="md:col-span-2"><strong class="text-gray-800">Day 3, 6, 7:</strong> Rest or Light Activity</div>
+                        </div>
+                    </div>
+
+                    <div class="mb-8 day-block border-t border-stone-300 pt-8">
+                        <h3 class="text-2xl font-bold text-gray-700 mb-4">Week 2: <span class="font-semibold">Increasing Intensity</span></h3>
+                        <div class="grid md:grid-cols-2 gap-8">
+                            <div class="bg-stone-50 p-6 rounded-lg border border-stone-200 shadow-sm">
+                                <strong class="text-gray-800 block mb-2">Day 8 & 11: (4 Sets, 60s Rest)</strong>
+                                <div class="exercises mt-2"><span>Plank</span><span>Bicycle Crunches</span><span>Flutter Kicks</span></div>
+                                <div class="bg-amber-100 p-3 rounded-lg border border-amber-200 mt-4 text-center">
+                                    <p class="text-sm font-bold text-amber-800 italic">"Success isn't always about greatness. It's about consistency."</p>
+                                </div>
+                            </div>
+                            <div class="bg-stone-50 p-6 rounded-lg border border-stone-200 shadow-sm">
+                                <strong class="text-gray-800 block mb-2">Day 9 & 12: (4 Sets, 60s Rest)</strong>
+                                <div class="exercises mt-2"><span>Side Plank</span><span>Russian Twists</span><span>Heel Taps</span></div>
+                                <div class="bg-amber-100 p-3 rounded-lg border border-amber-200 mt-4 text-center">
+                                    <p class="text-sm font-bold text-amber-800 italic">"Push yourself because no one else is going to do it for you."</p>
+                                </div>
+                            </div>
+                            <div class="md:col-span-2"><strong class="text-gray-800">Day 10, 13, 14:</strong> Rest or Light Activity</div>
+                        </div>
+                    </div>
+
+                    <div class="mb-8 day-block border-t border-stone-300 pt-8">
+                        <h3 class="text-2xl font-bold text-gray-700 mb-4">Week 3: <span class="font-semibold">Endurance & Strength</span></h3>
+                        <div class="grid md:grid-cols-2 gap-8">
+                            <div class="bg-stone-50 p-6 rounded-lg border border-stone-200 shadow-sm">
+                                <strong class="text-gray-800 block mb-2">Day 15 & 18: (4 Sets, 45s Rest)</strong>
+                                <div class="exercises mt-2"><span>Plank</span><span>V-Ups</span><span>Leg Raises</span><span>Plank with Shoulder Taps</span><span>Bicycle Crunches</span></div>
+                                <div class="bg-amber-100 p-3 rounded-lg border border-amber-200 mt-4 text-center">
+                                    <p class="text-sm font-bold text-amber-800 italic">"Your body can stand almost anything. It's your mind that you have to convince."</p>
+                                </div>
+                            </div>
+                            <div class="bg-stone-50 p-6 rounded-lg border border-stone-200 shadow-sm">
+                                <strong class="text-gray-800 block mb-2">Day 16 & 19: (4 Sets, 45s Rest)</strong>
+                                <div class="exercises mt-2"><span>Side Plank with Hip Dip</span><span>Mountain Climbers</span><span>Reverse Crunches</span></div>
+                                <div class="bg-amber-100 p-3 rounded-lg border border-amber-200 mt-4 text-center">
+                                    <p class="text-sm font-bold text-amber-800 italic">"Strive for progress, not perfection."</p>
+                                </div>
+                            </div>
+                            <div class="md:col-span-2"><strong class="text-gray-800">Day 17, 20, 21:</strong> Rest or Light Activity</div>
+                        </div>
+                    </div>
+
+                    <div class="day-block border-t border-stone-300 pt-8 mt-8">
+                        <h3 class="text-2xl font-bold text-gray-700 mb-4">Week 4: <span class="font-semibold">Peak Challenge</span></h3>
+                        <div class="grid md:grid-cols-2 gap-8">
+                            <div class="bg-stone-50 p-6 rounded-lg border border-stone-200 shadow-sm">
+                                <strong class="text-gray-800 block mb-2">Day 22 & 23: (5 Sets, 45s Rest)</strong>
+                                <div class="exercises mt-2"><span>High Plank</span><span>Hanging Knee Raises</span><span>Flutter Kicks</span><span>Side Plank</span><span>Russian Twists</span><span>Plank Jacks</span></div>
+                                <div class="bg-amber-100 p-3 rounded-lg border border-amber-200 mt-4 text-center">
+                                    <p class="text-sm font-bold text-amber-800 italic">"The pain you feel today will be the strength you feel tomorrow."</p>
+                                </div>
+                            </div>
+                            <div class="bg-stone-50 p-6 rounded-lg border border-stone-200 shadow-sm">
+                                <strong class="text-gray-800 block mb-2">Day 25, 29 (AMRAP):</strong>
+                                <div class="exercises mt-2"><span>V-Ups</span><span>Bicycle Crunches</span><span>Mountain Climbers</span></div>
+                                <div class="bg-amber-100 p-3 rounded-lg border border-amber-200 mt-4 text-center">
+                                    <p class="text-sm font-bold text-amber-800 italic">"Don't limit your challenges. Challenge your limits."</p>
+                                </div>
+                            </div>
+                            <div class="bg-stone-50 p-6 rounded-lg border border-stone-200 shadow-sm">
+                                <strong class="text-gray-800 block mb-2">Day 26: (5 Sets, 30s Rest)</strong>
+                                <div class="exercises mt-2"><span>Up-Down Plank</span><span>Hollow Body Hold</span><span>Heel Taps</span></div>
+                                <div class="bg-amber-100 p-3 rounded-lg border border-amber-200 mt-4 text-center">
+                                    <p class="text-sm font-bold text-amber-800 italic">"Wake up with determination. Go to bed with satisfaction."</p>
+                                </div>
+                            </div>
+                            <div class="bg-stone-50 p-6 rounded-lg border border-stone-200 shadow-sm">
+                                <strong class="text-gray-800 block mb-2">Day 30 (Challenge):</strong>
+                                <div class="exercises mt-2"><span>Max Plank Hold</span></div>
+                                <div class="bg-amber-100 p-3 rounded-lg border border-amber-200 mt-4 text-center">
+                                    <p class="text-sm font-bold text-amber-800 italic">"You are so much stronger than you think. Finish strong!"</p>
+                                </div>
+                            </div>
+                             <div class="md:col-span-2"><strong class="text-gray-800">Day 24, 27, 28:</strong> Rest or Light Activity</div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </main>
+    </div>
+
+    <script>
+        lucide.createIcons();
+        document.getElementById('print-btn').addEventListener('click', () => { window.print(); });
+        
+        const exerciseData = {
+            'Week 1': [
+                { name: 'Plank', value: '20s (Day 1) -> 30s (Day 4)' },
+                { name: 'Crunches', value: '15 reps (Day 1) -> 20 reps (Day 4)' },
+                { name: 'Leg Raises', value: '10 reps (Day 1) -> 12 reps (Day 4)' },
+                { name: 'Glute Bridges', value: '15 reps (Day 2) -> 20 reps (Day 5)' },
+                { name: 'Bird-Dog', value: '10/side (Day 2) -> 12/side (Day 5)' },
+                { name: 'Mountain Climbers', value: '20s (Day 2) -> 30s (Day 5)' }
+            ],
+            'Week 2': [
+                { name: 'Plank', value: '40s (Day 8) -> 45s (Day 11)' },
+                { name: 'Bicycle Crunches', value: '20 reps (Day 8) -> 24 reps (Day 11)' },
+                { name: 'Flutter Kicks', value: '30s (Day 8) -> 40s (Day 11)' },
+                { name: 'Side Plank', value: '20s/side (Day 9) -> 30s/side (Day 12)' },
+                { name: 'Russian Twists', value: '20 reps (Day 9) -> 24 reps (Day 12)' },
+                { name: 'Heel Taps', value: '20 reps (Day 9) -> 24 reps (Day 12)' }
+            ],
+            'Week 3': [
+                { name: 'Plank', value: '60s' },
+                { name: 'V-Ups', value: '10 reps (Day 15) -> 12 reps (Day 18)' },
+                { name: 'Leg Raises', value: '20 reps' },
+                { name: 'Plank with Shoulder Taps', value: '20 reps' },
+                { name: 'Bicycle Crunches', value: '30 reps' },
+                { name: 'Side Plank with Hip Dip', value: '10/side (Day 16) -> 12/side (Day 19)' },
+                { name: 'Mountain Climbers', value: '45s (Day 16) -> 60s (Day 19)' },
+                { name: 'Reverse Crunches', value: '15 reps (Day 16) -> 20 reps (Day 19)' }
+            ],
+            'Week 4': [
+                { name: 'High Plank', value: '60s' },
+                { name: 'Hanging Knee Raises', value: '15 reps' },
+                { name: 'Flutter Kicks', value: '60s' },
+                { name: 'Side Plank', value: '45s/side' },
+                { name: 'Russian Twists', value: '20 reps' },
+                { name: 'Plank Jacks', value: '40s' },
+                { name: 'V-Ups', value: '10 reps' },
+                { name: 'Bicycle Crunches', value: '20 reps' },
+                { name: 'Mountain Climbers', value: '30 reps' },
+                { name: 'Up-Down Plank', value: '12 reps' },
+                { name: 'Hollow Body Hold', value: '30s' },
+                { name: 'Heel Taps', value: '30 reps' },
+                { name: 'Max Plank Hold', value: 'To Failure' }
+            ]
+        };
+
+        const exerciseVideos = { 'Plank': 'https://youtu.be/pvIjsG5Svck', 'Crunches': 'https://youtu.be/Xyd_fa5zoEU', 'Leg Raises': 'https://youtu.be/l4kQd9eWclE', 'Glute Bridges': 'https://youtu.be/OUgsJ8-Vi0E', 'Bird-Dog': 'https://www.youtube.com/watch?v=wiFNA3sqjCA', 'Mountain Climbers': 'https://youtu.be/nmwgirgXLYM', 'Bicycle Crunches': 'https://youtu.be/Iwyvozckjak', 'Flutter Kicks': 'https://www.youtube.com/watch?v=ANVdMDaYRts', 'Side Plank': 'https://www.youtube.com/watch?v=NXr4Fw8q60o', 'Russian Twists': 'https://youtu.be/wkD8rjkodUI', 'Heel Taps': 'https://youtu.be/9bR-elyolBQ', 'V-Ups': 'https://youtu.be/5kvKmRGADlQ', 'Side Plank with Hip Dip': 'https://youtu.be/LgaYt4Hi6-g', 'Reverse Crunches': 'https://youtu.be/UwRfRN5fYRg', 'Plank with Shoulder Taps': 'https://youtu.be/ztpXZm7Dv80', 'High Plank': 'https://youtu.be/EKZfeoVuPbE', 'Hanging Knee Raises': 'https://youtu.be/RD_A-Z15ER4', 'Plank Jacks': 'https://youtu.be/3VpkyIcnT64', 'Up-Down Plank': 'https://youtu.be/L4oFJRDAU4Q', 'Hollow Body Hold': 'https://youtu.be/A-BORiPySck', 'Max Plank Hold': 'https://www.youtube.com/watch?v=y3t_C-_2bOA' };
+
+        document.addEventListener('DOMContentLoaded', () => {
+            const exerciseBlocks = document.querySelectorAll('.exercises');
+            exerciseBlocks.forEach(block => {
+                const weekTitle = block.closest('.day-block').querySelector('h3').textContent.split(':')[0];
+                const dayExercises = exerciseData[weekTitle];
+
+                const exerciseNamesInBlock = Array.from(block.querySelectorAll('span')).map(span => span.textContent);
+                let listHTML = '<ul class="list-disc list-inside space-y-2">';
+
+                new Set(exerciseNamesInBlock).forEach(name => {
+                    const videoUrl = exerciseVideos[name];
+                    const exerciseDetail = dayExercises.find(ex => ex.name === name);
+                    let detailText = exerciseDetail ? ` - ${exerciseDetail.value}` : '';
+
+                    const linkHTML = videoUrl 
+                        ? `<a href="${videoUrl}" target="_blank" rel="noopener noreferrer" class="font-medium text-amber-700 hover:underline">${name}</a>`
+                        : `<span class="font-medium text-gray-700">${name}</span>`;
+
+                    listHTML += `
+                        <li class="text-gray-600">
+                            ${linkHTML}
+                            <span class="text-sm text-gray-500">${detailText}</span>
+                        </li>
+                    `;
+                });
+
+                listHTML += '</ul>';
+                block.innerHTML = listHTML;
+            });
+            
+            const trackerGrid = document.getElementById('progress-tracker-grid');
+            const resetBtn = document.getElementById('reset-tracker-btn');
+            const STORAGE_KEY = 'absChallengeProgress';
+
+            const renderTracker = () => {
+                trackerGrid.innerHTML = '';
+                for (let i = 1; i <= 30; i++) {
+                    const dayBox = document.createElement('div');
+                    dayBox.className = 'day-tracker-box flex items-center justify-center h-10 w-10 border-2 border-stone-300 rounded-lg cursor-pointer transition-colors duration-200 hover:bg-stone-300';
+                    dayBox.textContent = i;
+                    dayBox.dataset.day = i;
+                    trackerGrid.appendChild(dayBox);
+                }
+            };
+            const saveProgress = () => {
+                const completedDays = [];
+                document.querySelectorAll('.day-tracker-box.completed').forEach(box => { completedDays.push(box.dataset.day); });
+                localStorage.setItem(STORAGE_KEY, JSON.stringify(completedDays));
+            };
+            const loadProgress = () => {
+                const completedDays = JSON.parse(localStorage.getItem(STORAGE_KEY)) || [];
+                completedDays.forEach(day => {
+                    const box = document.querySelector(`.day-tracker-box[data-day='${day}']`);
+                    if (box) box.classList.add('completed');
+                });
+            };
+            trackerGrid.addEventListener('click', (e) => {
+                if (e.target.classList.contains('day-tracker-box')) {
+                    e.target.classList.toggle('completed');
+                    saveProgress();
+                }
+            });
+            resetBtn.addEventListener('click', () => {
+                localStorage.removeItem(STORAGE_KEY);
+                document.querySelectorAll('.day-tracker-box.completed').forEach(box => { box.classList.remove('completed'); });
+            });
+            renderTracker();
+            loadProgress();
+
+        });
+    </script>
+</body>
+</html>
+
